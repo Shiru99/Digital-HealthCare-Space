@@ -1,5 +1,5 @@
 import 'dart:math' as math;
-import 'package:best_flutter_ui_templates/health_space/health_space_theme.dart';
+import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 

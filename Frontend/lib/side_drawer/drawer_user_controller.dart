@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/side_drawer/home_drawer.dart';
+import 'package:digital_healthcare_space/app_theme.dart';
+import 'package:digital_healthcare_space/side_drawer/home_drawer.dart';
 import 'package:flutter/material.dart';
 
 class DrawerUserController extends StatefulWidget {

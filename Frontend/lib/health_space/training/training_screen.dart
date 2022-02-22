@@ -1,8 +1,8 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
-import 'package:best_flutter_ui_templates/health_space/ui_view/area_list_view.dart';
-import 'package:best_flutter_ui_templates/health_space/ui_view/running_view.dart';
-import 'package:best_flutter_ui_templates/health_space/ui_view/title_view.dart';
-import 'package:best_flutter_ui_templates/health_space/ui_view/workout_view.dart';
+import 'package:digital_healthcare_space/app_theme.dart';
+import 'package:digital_healthcare_space/health_space/ui_view/area_list_view.dart';
+import 'package:digital_healthcare_space/health_space/ui_view/running_view.dart';
+import 'package:digital_healthcare_space/health_space/ui_view/title_view.dart';
+import 'package:digital_healthcare_space/health_space/ui_view/workout_view.dart';
 import 'package:flutter/material.dart';
 
 import '../health_space_theme.dart';

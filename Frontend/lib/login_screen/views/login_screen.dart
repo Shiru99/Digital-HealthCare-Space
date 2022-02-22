@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/login_screen/utils/exports.dart';
-import 'package:best_flutter_ui_templates/navigation_home_screen.dart';
+import 'package:digital_healthcare_space/login_screen/utils/exports.dart';
+import 'package:digital_healthcare_space/navigation_home_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

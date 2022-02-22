@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/login_screen/utils/exports.dart';
+import 'package:digital_healthcare_space/login_screen/utils/exports.dart';
 
 class AppColors {
   static const kDarkBack = Color(0xff132137);

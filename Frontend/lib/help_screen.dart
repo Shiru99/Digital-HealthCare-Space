@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/app_theme.dart';
+import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatefulWidget {

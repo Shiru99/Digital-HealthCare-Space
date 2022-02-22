@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/main.dart';
+import 'package:digital_healthcare_space/main.dart';
 import 'package:flutter/material.dart';
 import '../health_space_theme.dart';
 

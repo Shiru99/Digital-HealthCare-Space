@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/fitness_app/ui_view/wave_view.dart';
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
+import 'package:best_flutter_ui_templates/health_space/ui_view/wave_view.dart';
+import 'package:best_flutter_ui_templates/health_space/health_space_theme.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 
@@ -176,7 +176,7 @@ class _WaterViewState extends State<WaterView> with TickerProviderStateMixin {
                                           width: 24,
                                           height: 24,
                                           child: Image.asset(
-                                              'assets/fitness_app/bell.png'),
+                                              'assets/health_space/bell.png'),
                                         ),
                                         Flexible(
                                           child: Text(

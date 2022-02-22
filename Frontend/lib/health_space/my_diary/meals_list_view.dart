@@ -1,5 +1,5 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
-import 'package:best_flutter_ui_templates/fitness_app/models/meals_list_data.dart';
+import 'package:best_flutter_ui_templates/health_space/health_space_theme.dart';
+import 'package:best_flutter_ui_templates/health_space/models/meals_list_data.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 

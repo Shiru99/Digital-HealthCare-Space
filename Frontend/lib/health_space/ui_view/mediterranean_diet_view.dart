@@ -1,4 +1,4 @@
-import 'package:best_flutter_ui_templates/fitness_app/fitness_app_theme.dart';
+import 'package:best_flutter_ui_templates/health_space/health_space_theme.dart';
 import 'package:best_flutter_ui_templates/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
@@ -99,7 +99,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                      "assets/fitness_app/eaten.png"),
+                                                      "assets/health_space/eaten.png"),
                                                 ),
                                                 Padding(
                                                   padding:
@@ -198,7 +198,7 @@ class MediterranesnDietView extends StatelessWidget {
                                                   width: 28,
                                                   height: 28,
                                                   child: Image.asset(
-                                                      "assets/fitness_app/burned.png"),
+                                                      "assets/health_space/burned.png"),
                                                 ),
                                                 Padding(
                                                   padding:

@@ -4,7 +4,6 @@ import 'package:best_flutter_ui_templates/introduction_animation/introduction_an
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'login_screen/utils/exports.dart';
-import 'navigation_home_screen.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {

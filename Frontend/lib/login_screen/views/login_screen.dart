@@ -51,9 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         )),
 
                     const SizedBox(height: 20),
-                    CustomTextField(Lone: "Email", Htwo: "Email"),
+                    customTextField(label: "Email", hint: "Email"),
                     const SizedBox(height: 20),
-                    CustomTextField(Lone: "Password", Htwo: "Password"),
+                    customTextField(label: "Password", hint: "Password"),
                     const SizedBox(height: 20),
                     Row(
                       children: [

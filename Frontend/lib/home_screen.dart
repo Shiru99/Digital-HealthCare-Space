@@ -12,7 +12,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   List<HomeList> homeList = HomeList.homeList;
   AnimationController? animationController;
-  bool multiple = true;
 
   @override
   void initState() {
@@ -93,7 +92,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                             ),
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: multiple ? 2 : 1,
+                              crossAxisCount: 1,
                               mainAxisSpacing: 12.0,
                               crossAxisSpacing: 12.0,
                               childAspectRatio: 1.5,
@@ -140,30 +139,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 8, right: 8),
-            child: Container(
-              width: AppBar().preferredSize.height - 8,
-              height: AppBar().preferredSize.height - 8,
-              color: Colors.white,
-              child: Material(
-                color: Colors.transparent,
-                child: InkWell(
-                  borderRadius:
-                      BorderRadius.circular(AppBar().preferredSize.height),
-                  child: Icon(
-                    multiple ? Icons.dashboard : Icons.view_agenda,
-                    color: AppTheme.dark_grey,
-                  ),
-                  onTap: () {
-                    setState(() {
-                      multiple = !multiple;
-                    });
-                  },
-                ),
-              ),
-            ),
-          ),
+
         ],
       ),
     );

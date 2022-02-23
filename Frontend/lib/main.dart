@@ -3,7 +3,6 @@ import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:digital_healthcare_space/introduction_animation/introduction_animation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'login_screen/utils/exports.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 
 void main() async {

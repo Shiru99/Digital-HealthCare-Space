@@ -32,6 +32,8 @@ dependencies:
     flutter_rating_bar: ^4.0.0
     intl: ^0.17.0
     animations: ^2.0.0
+    email_validator: 
+    fluttertoast: 
     dcdg: 
 
 dev_dependencies:

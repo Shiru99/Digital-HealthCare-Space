@@ -1,5 +1,16 @@
 import 'package:digital_healthcare_space/app_theme.dart';
+import 'package:digital_healthcare_space/login_screen/views/login_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+void toastMessage(String message) {
+  Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_SHORT,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 5,
+      fontSize: 16.0);
+}
 
 class HomeDrawer extends StatefulWidget {
   const HomeDrawer({Key? key, this.screenIndex, this.iconAnimationController, this.callBackIndex}) : super(key: key);
@@ -169,7 +180,12 @@ class _HomeDrawerState extends State<HomeDrawer> {
   }
   
   void onTapped() {
-    print('Doing Something...'); // Print to console.
+    toastMessage("Logging out...");
+    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) {
+      return LoginScreen();
+    }));
+    
   }
 
   Widget inkwell(DrawerList listData) {

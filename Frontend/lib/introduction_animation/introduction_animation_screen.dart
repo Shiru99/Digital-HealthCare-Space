@@ -5,7 +5,7 @@ import 'package:digital_healthcare_space/introduction_animation/components/relax
 import 'package:digital_healthcare_space/introduction_animation/components/splash_view.dart';
 import 'package:digital_healthcare_space/introduction_animation/components/top_back_skip_view.dart';
 import 'package:digital_healthcare_space/introduction_animation/components/welcome_view.dart';
-import 'package:digital_healthcare_space/login_screen/utils/exports.dart';
+import 'package:digital_healthcare_space/login_screen/views/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {

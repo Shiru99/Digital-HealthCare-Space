@@ -54,7 +54,7 @@ class RunningView extends StatelessWidget {
                                   child: AspectRatio(
                                     aspectRatio: 1.714,
                                     child: Image.asset(
-                                        "assets/fitness_app/back.png"),
+                                        "assets/health_space/back.png"),
                                   ),
                                 ),
                               ),
@@ -117,7 +117,7 @@ class RunningView extends StatelessWidget {
                         child: SizedBox(
                           width: 110,
                           height: 110,
-                          child: Image.asset("assets/fitness_app/runner.png"),
+                          child: Image.asset("assets/health_space/runner.png"),
                         ),
                       )
                     ],

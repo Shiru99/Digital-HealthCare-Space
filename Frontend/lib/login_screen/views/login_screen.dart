@@ -76,6 +76,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    _email.text = 'john.doe@gmail.com';
+    _password.text = 'abcABC123@';
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: AppColors.kLightPink,
@@ -89,8 +92,6 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    
-
                     const SizedBox(
                       height: 30,
                     ),
@@ -110,90 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Image.asset("assets/images/img1.png",height: 225),
-
-                    Form(
-                      key: _signInFormKey,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 5.0),
-                            child: new TextFormField(
-                              decoration: InputDecoration(
-                                  labelText: "Gmail",
-                                  hintText: "john.doe@gmail.com",
-                                  hintStyle: const TextStyle(
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 15,
-                                  )),
-                              textInputAction: TextInputAction.next,
-                              keyboardType: TextInputType.emailAddress,
-                              controller: _email,
-                              validator: (email) {
-                                if (email!.isEmpty) {
-                                  return 'Please enter some text';
-                                }
-                                return EmailValidator.validate(email)
-                                    ? null
-                                    : "Invalid email address";
-                              },
-                              onSaved: (value) {
-                                _email.text = value!;
-                              },
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 30.0, vertical: 5.0),
-                            child: new TextFormField(
-                                // style: TextStyle(
-                                //   color: Colors.white,
-                                // ),
-                                obscureText: _passwordVisible,
-                                decoration: new InputDecoration(
-                                  labelText: "Password",
-                                  hintText: " a-z + A-Z + 0-9 + !@#\$&*~ ",
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      _passwordVisible
-                                          ? Icons.visibility // Icons.lock,
-                                          : Icons.visibility_off,
-                                    ),
-                                    onPressed: () {
-                                      setState(() {
-                                        _passwordVisible = !_passwordVisible;
-                                      });
-                                    },
-                                  ),
-                                ),
-                                textInputAction: TextInputAction.done,
-                                controller: _password,
-                                onFieldSubmitted: (_) =>
-                                    FocusScope.of(context).unfocus(),
-                                validator: (password) {
-                                  Pattern pattern =
-                                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-                                  RegExp regex = new RegExp(pattern.toString());
-                                  if (password!.isEmpty) {
-                                    return 'Please enter some text';
-                                  }
-                                  if (password.length < 8) {
-                                    return 'atleast 8 charater';
-                                  }
-                                  if (!regex.hasMatch(password))
-                                    return 'week password';
-                                  else
-                                    return null;
-                                },
-                                onSaved: (value) {
-                                  _password.text = value!;
-                                }),
-                          ),
-                        ],
-                      ),
-                    ),
+                    Image.asset("assets/images/img1.png", height: 225),
 
                     Form(
                       key: _signInFormKey,

@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
-    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitUp, 
     DeviceOrientation.portraitDown
   ]).then((_) => runApp(MyApp()));
 }

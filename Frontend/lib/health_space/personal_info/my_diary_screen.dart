@@ -4,19 +4,19 @@ import 'package:digital_healthcare_space/health_space/ui_view/glass_view.dart';
 import 'package:digital_healthcare_space/health_space/ui_view/mediterranean_diet_view.dart';
 import 'package:digital_healthcare_space/health_space/ui_view/title_view.dart';
 import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
-import 'package:digital_healthcare_space/health_space/my_diary/meals_list_view.dart';
-import 'package:digital_healthcare_space/health_space/my_diary/water_view.dart';
+import 'package:digital_healthcare_space/health_space/health_info/meals_list_view.dart';
+import 'package:digital_healthcare_space/health_space/health_info/water_view.dart';
 import 'package:flutter/material.dart';
 
-class MyDiaryScreen extends StatefulWidget {
-  const MyDiaryScreen({Key? key, this.animationController}) : super(key: key);
+class MyPersonalDataScreen extends StatefulWidget {
+  const MyPersonalDataScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _MyDiaryScreenState createState() => _MyDiaryScreenState();
+  _MyPersonalDataScreenState createState() => _MyPersonalDataScreenState();
 }
 
-class _MyDiaryScreenState extends State<MyDiaryScreen>
+class _MyPersonalDataScreenState extends State<MyPersonalDataScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 

@@ -1,9 +1,13 @@
-import 'package:digital_healthcare_space/health_space/models/tabIcon_data.dart';
-import 'package:digital_healthcare_space/health_space/training/training_screen.dart';
+import 'package:digital_healthcare_space/health_space/Diet_info/my_diet_screen.dart';
+import 'package:digital_healthcare_space/health_space/exercise_info/my_exercise_screen.dart';
+import 'package:digital_healthcare_space/health_space/health_info/my_health_screen.dart';
+import 'package:digital_healthcare_space/health_space/personal_info/my_diary_screen.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'health_space_theme.dart';
-import 'my_diary/my_diary_screen.dart';
+
+import 'package:digital_healthcare_space/health_space/bottom_navigation_view/tabIcon_data.dart';
+
 
 class FitnessAppHomeScreen extends StatefulWidget {
   @override
@@ -29,7 +33,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = MyHealthScreen(animationController: animationController);
     super.initState();
   }
 
@@ -79,24 +83,51 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
           tabIconsList: tabIconsList,
           addClick: () {},
           changeIndex: (int index) {
-            if (index == 0 || index == 2) {
+            // IOT DEVICE - Health info
+            if (index == 0) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
                 }
                 setState(() {
                   tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                      MyHealthScreen(animationController: animationController);
                 });
               });
-            } else if (index == 1 || index == 3) {
+            }
+            // Diet info
+            else if (index == 1) {
               animationController?.reverse().then<dynamic>((data) {
                 if (!mounted) {
                   return;
                 }
                 setState(() {
                   tabBody =
-                      TrainingScreen(animationController: animationController);
+                      MyDietScreen(animationController: animationController);
+                });
+              });
+            }
+            // Exercise info
+            else if (index == 2) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody = MyExerciseScreen(
+                      animationController: animationController);
+                });
+              });
+            }
+            // Personal Info
+            else if (index == 3) {
+              animationController?.reverse().then<dynamic>((data) {
+                if (!mounted) {
+                  return;
+                }
+                setState(() {
+                  tabBody = MyPersonalDataScreen(
+                      animationController: animationController);
                 });
               });
             }

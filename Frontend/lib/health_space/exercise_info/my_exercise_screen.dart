@@ -7,15 +7,15 @@ import 'package:flutter/material.dart';
 
 import '../health_space_theme.dart';
 
-class TrainingScreen extends StatefulWidget {
-  const TrainingScreen({Key? key, this.animationController}) : super(key: key);
+class MyExerciseScreen extends StatefulWidget {
+  const MyExerciseScreen({Key? key, this.animationController}) : super(key: key);
 
   final AnimationController? animationController;
   @override
-  _TrainingScreenState createState() => _TrainingScreenState();
+  _MyExerciseScreenState createState() => _MyExerciseScreenState();
 }
 
-class _TrainingScreenState extends State<TrainingScreen>
+class _MyExerciseScreenState extends State<MyExerciseScreen>
     with TickerProviderStateMixin {
   Animation<double>? topBarAnimation;
 

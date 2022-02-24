@@ -1,9 +1,9 @@
 import 'dart:math' as math;
 import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
-import 'package:digital_healthcare_space/health_space/models/tabIcon_data.dart';
+import 'package:digital_healthcare_space/health_space/bottom_navigation_view/tabIcon_data.dart';
 import 'package:flutter/material.dart';
 
-import '../models/tabIcon_data.dart';
+import 'tabIcon_data.dart';
 
 class BottomBarView extends StatefulWidget {
   const BottomBarView(

@@ -1,5 +1,5 @@
 import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
-import 'package:digital_healthcare_space/health_space/models/meals_list_data.dart';
+import 'package:digital_healthcare_space/health_space/Diet_info/meals_list_data.dart';
 import 'package:digital_healthcare_space/main.dart';
 import 'package:flutter/material.dart';
 

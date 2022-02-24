@@ -209,7 +209,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 8, bottom: 12),
                                   child: Text(
-                                    'Welcome...',
+                                    'Workout',
                                     style: TextStyle(
                                       fontSize: 22,
                                       color: AppTheme.darkText,

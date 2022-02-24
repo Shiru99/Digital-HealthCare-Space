@@ -1,7 +1,7 @@
 import 'package:digital_healthcare_space/health_space/Diet_info/my_diet_screen.dart';
 import 'package:digital_healthcare_space/health_space/exercise_info/my_exercise_screen.dart';
 import 'package:digital_healthcare_space/health_space/health_info/my_health_screen.dart';
-import 'package:digital_healthcare_space/health_space/personal_info/my_diary_screen.dart';
+import 'package:digital_healthcare_space/health_space/personal_info/my_personal_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'health_space_theme.dart';

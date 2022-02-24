@@ -1,15 +1,12 @@
 import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:digital_healthcare_space/health_space/ui_view/body_measurement.dart';
-import 'package:digital_healthcare_space/health_space/ui_view/glass_view.dart';
-import 'package:digital_healthcare_space/health_space/ui_view/mediterranean_diet_view.dart';
 import 'package:digital_healthcare_space/health_space/ui_view/title_view.dart';
 import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
-import 'package:digital_healthcare_space/health_space/health_info/meals_list_view.dart';
-import 'package:digital_healthcare_space/health_space/health_info/water_view.dart';
 import 'package:flutter/material.dart';
 
 class MyPersonalDataScreen extends StatefulWidget {
-  const MyPersonalDataScreen({Key? key, this.animationController}) : super(key: key);
+  const MyPersonalDataScreen({Key? key, this.animationController})
+      : super(key: key);
 
   final AnimationController? animationController;
   @override
@@ -58,48 +55,27 @@ class _MyPersonalDataScreenState extends State<MyPersonalDataScreen>
   }
 
   void addAllListData() {
-    const int count = 9;
+    const int count = 4;
 
     listViews.add(
       TitleView(
-        titleTxt: 'Mediterranean diet',
-        subTxt: 'Details',
+        titleTxt: 'Body measurement',
+        subTxt: 'Today',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      MediterranesnDietView(
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      TitleView(
-        titleTxt: 'Meals today',
-        subTxt: 'Customize',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
 
     listViews.add(
-      MealsListView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController,
+      BodyMeasurementView(
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve:
+                Interval((1 / count) * 5, 1.0, curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
       ),
     );
 
@@ -124,37 +100,7 @@ class _MyPersonalDataScreenState extends State<MyPersonalDataScreen>
         animationController: widget.animationController!,
       ),
     );
-    listViews.add(
-      TitleView(
-        titleTxt: 'Water',
-        subTxt: 'Aqua SmartBottle',
-        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
-            parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
-        animationController: widget.animationController!,
-      ),
-    );
-
-    listViews.add(
-      WaterView(
-        mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
-            CurvedAnimation(
-                parent: widget.animationController!,
-                curve: Interval((1 / count) * 7, 1.0,
-                    curve: Curves.fastOutSlowIn))),
-        mainScreenAnimationController: widget.animationController!,
-      ),
-    );
-    listViews.add(
-      GlassView(
-          animation: Tween<double>(begin: 0.0, end: 1.0).animate(
-              CurvedAnimation(
-                  parent: widget.animationController!,
-                  curve: Interval((1 / count) * 8, 1.0,
-                      curve: Curves.fastOutSlowIn))),
-          animationController: widget.animationController!),
-    );
+    
   }
 
   Future<bool> getData() async {
@@ -250,9 +196,10 @@ class _MyPersonalDataScreenState extends State<MyPersonalDataScreen>
                             Expanded(
                               child: Center(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 8, bottom: 12),
+                                  padding:
+                                      const EdgeInsets.only(top: 8, bottom: 12),
                                   child: Text(
-                                    'Welcome...',
+                                    'Personal Info',
                                     style: TextStyle(
                                       fontSize: 22,
                                       color: AppTheme.darkText,

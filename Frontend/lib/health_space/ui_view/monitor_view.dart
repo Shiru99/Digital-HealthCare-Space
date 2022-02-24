@@ -3,11 +3,11 @@ import 'package:digital_healthcare_space/main.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class MediterranesnDietView extends StatelessWidget {
+class MonitorView extends StatelessWidget {
   final AnimationController? animationController;
   final Animation<double>? animation;
 
-  const MediterranesnDietView(
+  const MonitorView(
       {Key? key, this.animationController, this.animation})
       : super(key: key);
 

@@ -1,5 +1,5 @@
 import 'package:digital_healthcare_space/app_theme.dart';
-import 'package:digital_healthcare_space/login_screen/views/login_screen.dart';
+import 'package:digital_healthcare_space/login_screen/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 

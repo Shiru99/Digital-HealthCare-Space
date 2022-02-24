@@ -1,8 +1,7 @@
-import 'package:digital_healthcare_space/login_screen/utils/appColors.dart';
-import 'package:digital_healthcare_space/login_screen/views/SaveUser.dart';
+import 'package:digital_healthcare_space/login_screen/SaveUser.dart';
 import 'package:digital_healthcare_space/navigation_home_screen.dart';
 import 'package:email_validator/email_validator.dart';
-
+import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 void toastMessage(String message) {
@@ -81,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.kLightPink,
+        backgroundColor: Color(0xFFF2F3F8),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 13),
@@ -111,7 +110,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Image.asset("assets/images/img1.png", height: 225),
+                    Image.asset("assets/images/login.png", height: 225),
 
                     Form(
                       key: _signInFormKey,
@@ -210,7 +209,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               const Text(
                                 "HealthCare Worker",
                                 style: TextStyle(
-                                    fontSize: 13, color: AppColors.kDarkBack),
+                                    fontSize: 13, color: Color(0xff132137)),
                               );
                             },
                           ),
@@ -247,7 +246,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(38.0),
-                            color: AppColors.kDarkBack,
+                            color: Color(0xff132137),
                           ),
                           child: Text(
                             "Let's Connect",

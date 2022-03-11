@@ -1,0 +1,7 @@
+sudo npm install npm --global
+
+npm install express
+npm install http-status-codez
+npm install mysql
+
+node main_app.js

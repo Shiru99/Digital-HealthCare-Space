@@ -1,7 +1,10 @@
 import 'package:digital_healthcare_space/app_theme.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class InviteFriend extends StatefulWidget {
+  const InviteFriend({Key? key}) : super(key: key);
+
   @override
   _InviteFriendState createState() => _InviteFriendState();
 }
@@ -31,8 +34,8 @@ class _InviteFriendState extends State<InviteFriend> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text(
-                  'Invite Your Friends',
+                child: const Text(
+                  'Add Family Members',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,7 +45,7 @@ class _InviteFriendState extends State<InviteFriend> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 child: const Text(
-                  'Are you one of those who makes everything\n at the last moment?',
+                  'Add family members\n And stay updated with them health',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -72,22 +75,24 @@ class _InviteFriendState extends State<InviteFriend> {
                         child: InkWell(
                           onTap: () {
                             //method here for functionality
-                            print('Share Action.');
+                            if (kDebugMode) {
+                              print('Share Action.');
+                            }
                           },
                           child: Center(
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
+                              children: const <Widget>[
                                 Icon(
                                   Icons.share,
                                   color: Colors.white,
                                   size: 22,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(4.0),
+                                  padding: EdgeInsets.all(4.0),
                                   child: Text(
-                                    'Share',
+                                    'Add',
                                     style: TextStyle(
                                       fontWeight: FontWeight.w500,
                                       color: Colors.white,

@@ -1,8 +1,10 @@
-import 'package:digital_healthcare_space/login_screen/SaveUser.dart';
 import 'package:digital_healthcare_space/navigation_home_screen.dart';
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 void toastMessage(String message) {
   Fluttertoast.showToast(
@@ -23,14 +25,14 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _signInFormKey = GlobalKey<FormState>();
 
-  TextEditingController _email = new TextEditingController();
-  TextEditingController _password = new TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  var userID = null;
 
-  late SaveUser _user;
   bool _passwordVisible = false;
   bool _isLoading = false;
 
-  bool health_care_worker = false;
+  bool healthCareWorker = false;
 
   reset() {
     setState(() {
@@ -38,34 +40,57 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  signInTheUserGP(
+  Future getUserID(String email, String password) async {}
+
+  Future signInTheUserGP(
       String email, String password, bool isHealthCareWorker) async {
     if (_signInFormKey.currentState!.validate()) {
       setState(() {
         _isLoading = true;
       });
-      print(email + " " + password + " " + isHealthCareWorker.toString());
+      if (kDebugMode) {
+        print(email + " " + password + " " + isHealthCareWorker.toString());
+      }
 
-      // Query to check valid user
-      var validUser = true;
+      // http://127.0.0.1:9000/login/user
+      String url = "http://localhost:9000/login/user";
 
-      if (validUser) {
+      final http.Response response = await http.put(
+        Uri.parse(url),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: jsonEncode(<String, String>{
+          'contact': email,
+          'password': password,
+        }),
+      );
+
+      if (response.statusCode == 200) {
+        userID = json.decode(response.body)['userid'];
         _isLoading = false;
 
         if (isHealthCareWorker) {
-          print("continue as health care worker");
+          if (kDebugMode) {
+            print("continue as health care worker");
+          }
           toastMessage("Welcome, health-care-worker");
           Navigator.pop(context);
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => NavigationHomeScreen()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  NavigationHomeScreen(email: email, userID: userID)));
         } else {
-          print("Welcome, User");
+          if (kDebugMode) {
+            print("Welcome, User");
+          }
           toastMessage("Welcome, User");
           Navigator.pop(context);
-          Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => NavigationHomeScreen()));
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) =>
+                  NavigationHomeScreen(email: email, userID: userID)));
         }
       } else {
+        toastMessage("Sorry, Something went wrong");
         setState(() {
           _isLoading = false;
         });
@@ -80,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFF2F3F8),
+        backgroundColor: const Color(0xFFF2F3F8),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(top: 13),
@@ -94,16 +119,17 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Text("Welcome",
-                        style: const TextStyle(
+                    const Text("Welcome",
+                        style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 26,
                         )),
                     const SizedBox(
                       height: 8,
                     ),
-                    Text("Please login or sign up to continue using our app.",
-                        style: const TextStyle(
+                    const Text(
+                        "Please login or sign up to continue using our app.",
+                        style: TextStyle(
                           fontWeight: FontWeight.normal,
                           fontSize: 14,
                         )),
@@ -120,11 +146,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 5.0),
-                            child: new TextFormField(
-                              decoration: InputDecoration(
+                            child: TextFormField(
+                              decoration: const InputDecoration(
                                   labelText: "Gmail",
                                   hintText: "john.doe@gmail.com",
-                                  hintStyle: const TextStyle(
+                                  hintStyle: TextStyle(
                                     fontWeight: FontWeight.normal,
                                     fontSize: 15,
                                   )),
@@ -147,12 +173,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 30.0, vertical: 5.0),
-                            child: new TextFormField(
+                            child: TextFormField(
                                 // style: TextStyle(
                                 //   color: Colors.white,
                                 // ),
                                 obscureText: _passwordVisible,
-                                decoration: new InputDecoration(
+                                decoration: InputDecoration(
                                   labelText: "Password",
                                   hintText: " a-z + A-Z + 0-9 + !@#\$&*~ ",
                                   suffixIcon: IconButton(
@@ -175,17 +201,18 @@ class _LoginScreenState extends State<LoginScreen> {
                                 validator: (password) {
                                   Pattern pattern =
                                       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
-                                  RegExp regex = new RegExp(pattern.toString());
+                                  RegExp regex = RegExp(pattern.toString());
                                   if (password!.isEmpty) {
                                     return 'Please enter some text';
                                   }
                                   if (password.length < 8) {
-                                    return 'atleast 8 charater';
+                                    return 'atleast 8 characters';
                                   }
-                                  if (!regex.hasMatch(password))
+                                  if (!regex.hasMatch(password)) {
                                     return 'week password';
-                                  else
+                                  } else {
                                     return null;
+                                  }
                                 },
                                 onSaved: (value) {
                                   _password.text = value!;
@@ -201,10 +228,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: Row(
                         children: [
                           Checkbox(
-                            value: health_care_worker,
+                            value: healthCareWorker,
                             onChanged: (newValue) {
                               setState(() {
-                                health_care_worker = newValue!;
+                                healthCareWorker = newValue!;
                               });
                               const Text(
                                 "HealthCare Worker",
@@ -234,11 +261,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       child: InkWell(
                         onTap: () {
                           signInTheUserGP(
-                              _email.text, _password.text, health_care_worker);
+                              _email.text, _password.text, healthCareWorker);
                         },
                         child: Container(
                           height: 58,
-                          padding: EdgeInsets.only(
+                          padding: const EdgeInsets.only(
                             left: 56.0,
                             right: 56.0,
                             top: 16,
@@ -246,9 +273,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(38.0),
-                            color: Color(0xff132137),
+                            color: const Color(0xff132137),
                           ),
-                          child: Text(
+                          child: const Text(
                             "Let's Connect",
                             style: TextStyle(
                               fontSize: 18,

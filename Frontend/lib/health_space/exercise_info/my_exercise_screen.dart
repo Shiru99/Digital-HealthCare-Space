@@ -28,7 +28,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
     scrollController.addListener(() {
@@ -57,7 +57,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
   }
 
   void addAllListData() {
-    const int count = 5;
+    const int count = 6;
 
     listViews.add(
       TitleView(
@@ -66,7 +66,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -76,7 +76,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -85,7 +85,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 3, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -97,7 +97,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 4, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -107,7 +107,7 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
-                curve: Interval((1 / count) * 5, 1.0,
+                curve: const Interval((1 / count) * 5, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
       ),
@@ -203,11 +203,11 @@ class _MyExerciseScreenState extends State<MyExerciseScreen>
                             bottom: 12 - 8.0 * topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Expanded(
                               child: Center(
                                 child: Padding(
-                                  padding: const EdgeInsets.only(top: 8, bottom: 12),
+                                  padding: EdgeInsets.only(top: 8, bottom: 12),
                                   child: Text(
                                     'Workout',
                                     style: TextStyle(

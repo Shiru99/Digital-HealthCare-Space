@@ -1,5 +1,8 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:digital_healthcare_space/app_theme.dart';
-import 'package:digital_healthcare_space/health_space/ui_view/monitor_view.dart';
+import 'package:digital_healthcare_space/health_space/health_info/monitor_diabetes.dart';
+import 'package:digital_healthcare_space/health_space/health_info/monitor_heart.dart';
 import 'package:digital_healthcare_space/health_space/ui_view/title_view.dart';
 import 'package:digital_healthcare_space/health_space/health_space_theme.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +28,7 @@ class _MyHealthScreenState extends State<MyHealthScreen>
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
     scrollController.addListener(() {
@@ -54,7 +57,7 @@ class _MyHealthScreenState extends State<MyHealthScreen>
   }
 
   void addAllListData() {
-    const int count = 4;
+    const int count = 6;
 
     listViews.add(
       TitleView(
@@ -62,17 +65,17 @@ class _MyHealthScreenState extends State<MyHealthScreen>
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 0, 1.0,
+                curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
     listViews.add(
-      MonitorView(
+      MonitorViewHeart(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 1, 1.0,
+                curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -83,17 +86,29 @@ class _MyHealthScreenState extends State<MyHealthScreen>
         subTxt: 'Details',
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 0, 1.0,
+                curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
     listViews.add(
-      MonitorView(
+      MonitorViewDiabetes(
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
-            curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+            curve: const Interval((1 / count) * 1, 1.0,
+                curve: Curves.fastOutSlowIn))),
+        animationController: widget.animationController!,
+      ),
+    );
+
+    listViews.add(
+      TitleView(
+        titleTxt: 'Add new IOT device',
+        subTxt: '',
+        animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
+            parent: widget.animationController!,
+            curve: const Interval((1 / count) * 0, 1.0,
+                curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -188,12 +203,11 @@ class _MyHealthScreenState extends State<MyHealthScreen>
                             bottom: 12 - 8.0 * topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Expanded(
                               child: Center(
                                 child: Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 8, bottom: 12),
+                                  padding: EdgeInsets.only(top: 8, bottom: 12),
                                   child: Text(
                                     'Health Monitor',
                                     style: TextStyle(

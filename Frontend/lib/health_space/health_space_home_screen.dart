@@ -8,8 +8,15 @@ import 'health_space_theme.dart';
 
 import 'package:digital_healthcare_space/health_space/bottom_navigation_view/tabIcon_data.dart';
 
-
 class FitnessAppHomeScreen extends StatefulWidget {
+  final String email;
+  final String userID;
+  const FitnessAppHomeScreen({
+    Key? key,
+    required this.email,
+    required this.userID,
+  }) : super(key: key);
+
   @override
   _FitnessAppHomeScreenState createState() => _FitnessAppHomeScreenState();
 }
@@ -26,9 +33,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
   @override
   void initState() {
-    tabIconsList.forEach((TabIconData tab) {
+    for (var tab in tabIconsList) {
       tab.isSelected = false;
-    });
+    }
     tabIconsList[0].isSelected = true;
 
     animationController = AnimationController(
@@ -127,7 +134,10 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 setState(() {
                   tabBody = MyPersonalDataScreen(
-                      animationController: animationController);
+                    animationController: animationController,
+                    email: widget.email,
+                    userID: widget.userID,
+                  );
                 });
               });
             }

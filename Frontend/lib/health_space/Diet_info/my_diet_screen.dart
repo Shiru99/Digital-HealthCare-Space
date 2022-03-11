@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:digital_healthcare_space/health_space/Diet_info/meals_list_view.dart';
 import 'package:digital_healthcare_space/health_space/Diet_info/water_view.dart';
@@ -28,7 +30,7 @@ class _MyDietScreenState extends State<MyDietScreen>
     topBarAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
         CurvedAnimation(
             parent: widget.animationController!,
-            curve: Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
+            curve: const Interval(0, 0.5, curve: Curves.fastOutSlowIn)));
     addAllListData();
 
     scrollController.addListener(() {
@@ -57,7 +59,7 @@ class _MyDietScreenState extends State<MyDietScreen>
   }
 
   void addAllListData() {
-    const int count = 7;
+    const int count = 8;
     
     
     listViews.add(
@@ -67,7 +69,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 6, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -77,7 +79,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
-                curve: Interval((1 / count) * 7, 1.0,
+                curve: const Interval((1 / count) * 7, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController!,
       ),
@@ -87,7 +89,7 @@ class _MyDietScreenState extends State<MyDietScreen>
           animation: Tween<double>(begin: 0.0, end: 1.0).animate(
               CurvedAnimation(
                   parent: widget.animationController!,
-                  curve: Interval((1 / count) * 8, 1.0,
+                  curve: const Interval((1 / count) * 8, 1.0,
                       curve: Curves.fastOutSlowIn))),
           animationController: widget.animationController!),
     );
@@ -99,7 +101,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 2, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -109,7 +111,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         mainScreenAnimation: Tween<double>(begin: 0.0, end: 1.0).animate(
             CurvedAnimation(
                 parent: widget.animationController!,
-                curve: Interval((1 / count) * 3, 1.0,
+                curve: const Interval((1 / count) * 3, 1.0,
                     curve: Curves.fastOutSlowIn))),
         mainScreenAnimationController: widget.animationController,
       ),
@@ -122,7 +124,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 0, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -131,7 +133,7 @@ class _MyDietScreenState extends State<MyDietScreen>
         animation: Tween<double>(begin: 0.0, end: 1.0).animate(CurvedAnimation(
             parent: widget.animationController!,
             curve:
-                Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
+                const Interval((1 / count) * 1, 1.0, curve: Curves.fastOutSlowIn))),
         animationController: widget.animationController!,
       ),
     );
@@ -145,6 +147,7 @@ class _MyDietScreenState extends State<MyDietScreen>
   @override
   Widget build(BuildContext context) {
     return Container(
+      
       color: FitnessAppTheme.background,
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -226,12 +229,12 @@ class _MyDietScreenState extends State<MyDietScreen>
                             bottom: 12 - 8.0 * topBarOpacity),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
+                          children: const <Widget>[
                             Expanded(
                               child: Center(
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.only(top: 8, bottom: 12),
+                                      EdgeInsets.only(top: 8, bottom: 12),
                                   child: Text(
                                     'Diet',
                                     style: TextStyle(

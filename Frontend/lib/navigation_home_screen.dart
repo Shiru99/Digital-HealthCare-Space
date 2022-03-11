@@ -8,6 +8,12 @@ import 'package:digital_healthcare_space/invite_friend_screen.dart';
 import 'package:flutter/material.dart';
 
 class NavigationHomeScreen extends StatefulWidget {
+  final String email;
+  final String userID;
+  const NavigationHomeScreen(
+      {Key? key, required this.email, required this.userID})
+      : super(key: key);
+
   @override
   _NavigationHomeScreenState createState() => _NavigationHomeScreenState();
 }
@@ -19,7 +25,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
   @override
   void initState() {
     drawerIndex = DrawerIndex.HOME;
-    screenView = FitnessAppHomeScreen();
+    screenView = FitnessAppHomeScreen(email: widget.email, userID: widget.userID,);
     super.initState();
   }
 
@@ -52,25 +58,23 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
       drawerIndex = drawerIndexdata;
       if (drawerIndex == DrawerIndex.HOME) {
         setState(() {
-          screenView =  FitnessAppHomeScreen();
+          screenView = FitnessAppHomeScreen(email: widget.email, userID: widget.userID,);
         });
-      }  else if (drawerIndex == DrawerIndex.Invite) {
+      } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
-          screenView = InviteFriend();
+          screenView = const InviteFriend();
         });
-      }
-      else if (drawerIndex == DrawerIndex.Help) {
+      } else if (drawerIndex == DrawerIndex.Help) {
         setState(() {
-          screenView = HelpScreen();
+          screenView = const HelpScreen();
         });
-      }  else if (drawerIndex == DrawerIndex.Invite) {
+      } else if (drawerIndex == DrawerIndex.Invite) {
         setState(() {
-          screenView = InviteFriend();
+          screenView = const InviteFriend();
         });
-      }
-      else if (drawerIndex == DrawerIndex.FeedBack) {
+      } else if (drawerIndex == DrawerIndex.FeedBack) {
         setState(() {
-          screenView = FeedbackScreen();
+          screenView = const FeedbackScreen();
         });
       } else {
         //do in your way......

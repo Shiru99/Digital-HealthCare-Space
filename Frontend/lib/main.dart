@@ -10,10 +10,12 @@ void main() async {
   await SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp, 
     DeviceOrientation.portraitDown
-  ]).then((_) => runApp(MyApp()));
+  ]).then((_) => runApp(const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -31,7 +33,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         //  Color(0xff132137)
         // primarySwatch: Colors.blue,
-        primarySwatch: MaterialColor(0xff132137, {
+        primarySwatch: const MaterialColor(0xff132137, {
           50: Color(0xff132137),
           100: Color(0xff132137),
           200: Color(0xff132137),
@@ -47,7 +49,7 @@ class MyApp extends StatelessWidget {
         platform: TargetPlatform.iOS,
       ),
       // home: NavigationHomeScreen(),
-      home: IntroductionAnimationScreen(),
+      home: const IntroductionAnimationScreen(),
       // home: LoginScreen(),
     );
   }

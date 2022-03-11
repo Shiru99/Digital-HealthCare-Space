@@ -6,6 +6,7 @@ import 'package:digital_healthcare_space/introduction_animation/components/splas
 import 'package:digital_healthcare_space/introduction_animation/components/top_back_skip_view.dart';
 import 'package:digital_healthcare_space/introduction_animation/components/welcome_view.dart';
 import 'package:digital_healthcare_space/login_screen/login_screen.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionAnimationScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _IntroductionAnimationScreenState
   @override
   void initState() {
     _animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 8));
+        AnimationController(vsync: this, duration: const Duration(seconds: 8));
     _animationController?.animateTo(0.0);
     super.initState();
   }
@@ -36,9 +37,11 @@ class _IntroductionAnimationScreenState
 
   @override
   Widget build(BuildContext context) {
-    print(_animationController?.value);
+    if (kDebugMode) {
+      print(_animationController?.value);
+    }
     return Scaffold(
-      backgroundColor: Color(0xffF7EBE1),
+      backgroundColor: const Color(0xffF7EBE1),
       body: ClipRect(
         child: Stack(
           children: [
@@ -50,7 +53,7 @@ class _IntroductionAnimationScreenState
             ),
             CareView(
               animationController: _animationController!,
-            ),
+            ), 
             MoodDiaryVew(
               animationController: _animationController!,
             ),
@@ -74,7 +77,7 @@ class _IntroductionAnimationScreenState
 
   void _onSkipClick() {
     _animationController?.animateTo(0.8,
-        duration: Duration(milliseconds: 1200));
+        duration: const Duration(milliseconds: 1200));
   }
 
   void _onBackClick() {
@@ -115,7 +118,7 @@ class _IntroductionAnimationScreenState
   void _signUpClick() {
     Navigator.pop(context);
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LoginScreen();
+      return const LoginScreen();
     }));
   }
 }

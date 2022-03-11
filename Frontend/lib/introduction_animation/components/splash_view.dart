@@ -14,10 +14,10 @@ class _SplashViewState extends State<SplashView> {
   @override
   Widget build(BuildContext context) {
     final _introductionanimation =
-        Tween<Offset>(begin: Offset(0, 0), end: Offset(0.0, -1.0))
+        Tween<Offset>(begin: const Offset(0, 0), end: const Offset(0.0, -1.0))
             .animate(CurvedAnimation(
       parent: widget.animationController,
-      curve: Interval(
+      curve: const Interval(
         0.0,
         0.2,
         curve: Curves.fastOutSlowIn,
@@ -35,21 +35,21 @@ class _SplashViewState extends State<SplashView> {
                 fit: BoxFit.cover,
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
               child: Text(
-                "Clearhead",
+                "Our Health",
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 64, right: 64),
               child: Text(
-                "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                "“He who has health has hope; and he who has hope, has everything.” \n– Thomas Carlyle",
                 textAlign: TextAlign.center,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 48,
             ),
             Padding(
@@ -61,7 +61,7 @@ class _SplashViewState extends State<SplashView> {
                 },
                 child: Container(
                   height: 58,
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                     left: 56.0,
                     right: 56.0,
                     top: 16,
@@ -69,9 +69,9 @@ class _SplashViewState extends State<SplashView> {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(38.0),
-                    color: Color(0xff132137),
+                    color: const Color(0xff132137),
                   ),
-                  child: Text(
+                  child: const Text(
                     "Let's begin",
                     style: TextStyle(
                       fontSize: 18,

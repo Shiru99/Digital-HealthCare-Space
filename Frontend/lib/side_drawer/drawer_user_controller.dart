@@ -1,3 +1,5 @@
+// ignore_for_file: empty_catches
+
 import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:digital_healthcare_space/side_drawer/home_drawer.dart';
 import 'package:flutter/material.dart';
@@ -37,10 +39,10 @@ class _DrawerUserControllerState extends State<DrawerUserController> with Ticker
   void initState() {
     animationController = AnimationController(duration: const Duration(milliseconds: 2000), vsync: this);
     iconAnimationController = AnimationController(vsync: this, duration: const Duration(milliseconds: 0));
-    iconAnimationController?..animateTo(1.0, duration: const Duration(milliseconds: 0), curve: Curves.fastOutSlowIn);
+    iconAnimationController?.animateTo(1.0, duration: const Duration(milliseconds: 0), curve: Curves.fastOutSlowIn);
     scrollController = ScrollController(initialScrollOffset: widget.drawerWidth);
     scrollController!
-      ..addListener(() {
+      .addListener(() {
         if (scrollController!.offset <= 0) {
           if (scrolloffset != 1.0) {
             setState(() {
@@ -102,7 +104,7 @@ class _DrawerUserControllerState extends State<DrawerUserController> with Ticker
                       //transform we use for the stable drawer  we, not need to move with scroll view
                       transform: Matrix4.translationValues(scrollController!.offset, 0.0, 0.0),
                       child: HomeDrawer(
-                        screenIndex: widget.screenIndex == null ? DrawerIndex.HOME : widget.screenIndex,
+                        screenIndex: widget.screenIndex ?? DrawerIndex.HOME,
                         iconAnimationController: iconAnimationController,
                         callBackIndex: (DrawerIndex indexType) {
                           onDrawerClick();
@@ -152,9 +154,7 @@ class _DrawerUserControllerState extends State<DrawerUserController> with Ticker
                               borderRadius: BorderRadius.circular(AppBar().preferredSize.height),
                               child: Center(
                                 // if you use your own menu view UI you add form initialization
-                                child: widget.menuView != null
-                                    ? widget.menuView
-                                    : AnimatedIcon(
+                                child: widget.menuView ?? AnimatedIcon(
                                         icon: widget.animatedIconData ?? AnimatedIcons.arrow_menu,
                                         progress: iconAnimationController!),
                               ),
@@ -178,7 +178,7 @@ class _DrawerUserControllerState extends State<DrawerUserController> with Ticker
   }
 
   void onDrawerClick() {
-    //if scrollcontroller.offset != 0.0 then we set to closed the drawer(with animation to offset zero position) if is not 1 then open the drawer
+    //if scrollController.offset != 0.0 then we set to closed the drawer(with animation to offset zero position) if is not 1 then open the drawer
     if (scrollController!.offset != 0.0) {
       scrollController?.animateTo(
         0.0,

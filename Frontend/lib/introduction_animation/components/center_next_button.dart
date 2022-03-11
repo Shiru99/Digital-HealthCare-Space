@@ -11,10 +11,10 @@ class CenterNextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _topMoveAnimation =
-        Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
+        Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
+      curve: const Interval(
         0.0,
         0.2,
         curve: Curves.fastOutSlowIn,
@@ -23,17 +23,17 @@ class CenterNextButton extends StatelessWidget {
     final _signUpMoveAnimation =
         Tween<double>(begin: 0, end: 1.0).animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
+      curve: const Interval(
         0.6,
         0.8,
         curve: Curves.fastOutSlowIn,
       ),
     ));
     final _loginTextMoveAnimation =
-        Tween<Offset>(begin: Offset(0, 5), end: Offset(0, 0))
+        Tween<Offset>(begin: const Offset(0, 5), end: const Offset(0, 0))
             .animate(CurvedAnimation(
       parent: animationController,
-      curve: Interval(
+      curve: const Interval(
         0.6,
         0.8,
         curve: Curves.fastOutSlowIn,
@@ -56,7 +56,7 @@ class CenterNextButton extends StatelessWidget {
                         animationController.value <= 0.6
                     ? 1
                     : 0,
-                duration: Duration(milliseconds: 480),
+                duration: const Duration(milliseconds: 480),
                 child: _pageView(),
               ),
             ),
@@ -74,10 +74,10 @@ class CenterNextButton extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(
                         8 + 32 * (1 - _signUpMoveAnimation.value)),
-                    color: Color(0xff132137),
+                    color: const Color(0xff132137),
                   ),
                   child: PageTransitionSwitcher(
-                    duration: Duration(milliseconds: 480),
+                    duration: const Duration(milliseconds: 480),
                     reverse: _signUpMoveAnimation.value < 0.7,
                     transitionBuilder: (
                       Widget child,
@@ -94,14 +94,14 @@ class CenterNextButton extends StatelessWidget {
                     },
                     child: _signUpMoveAnimation.value > 0.7
                         ? InkWell(
-                            key: ValueKey('Sign Up button'),
+                            key: const ValueKey('Sign Up button'),
                             onTap: onNextClick,
                             child: Padding(
-                              padding: EdgeInsets.only(left: 16.0, right: 16.0),
+                              padding: const EdgeInsets.only(left: 16.0, right: 16.0),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                children: [
+                                children: const [
                                   Text(
                                     'Sign Up',
                                     style: TextStyle(
@@ -117,9 +117,9 @@ class CenterNextButton extends StatelessWidget {
                             ),
                           )
                         : InkWell(
-                            key: ValueKey('next button'),
+                            key: const ValueKey('next button'),
                             onTap: onNextClick,
-                            child: Padding(
+                            child: const Padding(
                               padding: EdgeInsets.all(16.0),
                               child: Icon(Icons.arrow_forward_ios_rounded,
                                   color: Colors.white),
@@ -136,7 +136,7 @@ class CenterNextButton extends StatelessWidget {
               position: _loginTextMoveAnimation,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: const [
                   Text(
                     'Please Sign in to continue',
                     style: TextStyle(
@@ -177,12 +177,12 @@ class CenterNextButton extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(4),
               child: AnimatedContainer(
-                duration: Duration(milliseconds: 480),
+                duration: const Duration(milliseconds: 480),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(32),
                   color: _selectedIndex == i
-                      ? Color(0xff132137)
-                      : Color(0xffE3E4E4),
+                      ? const Color(0xff132137)
+                      : const Color(0xffE3E4E4),
                 ),
                 width: 10,
                 height: 10,

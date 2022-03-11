@@ -2,6 +2,8 @@ import 'package:digital_healthcare_space/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class HelpScreen extends StatefulWidget {
+  const HelpScreen({Key? key}) : super(key: key);
+
   @override
   _HelpScreenState createState() => _HelpScreenState();
 }
@@ -31,8 +33,8 @@ class _HelpScreenState extends State<HelpScreen> {
               ),
               Container(
                 padding: const EdgeInsets.only(top: 8),
-                child: Text(
-                  'How can we help you?',
+                child: const Text(
+                  'Get connected with doctor',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
@@ -42,7 +44,7 @@ class _HelpScreenState extends State<HelpScreen> {
               Container(
                 padding: const EdgeInsets.only(top: 16),
                 child: const Text(
-                  'It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us',
+                  'Share your health details with doctor\nAnd let them monitor your health',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 16,
@@ -71,9 +73,9 @@ class _HelpScreenState extends State<HelpScreen> {
                         color: Colors.transparent,
                         child: InkWell(
                           onTap: () {},
-                          child: Center(
+                          child: const Center(
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: Text(
                                 'Chat with Us',
                                 style: TextStyle(

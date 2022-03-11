@@ -44,13 +44,13 @@ class _BottomBarViewState extends State<BottomBarView>
               child: PhysicalModel(
                 color: FitnessAppTheme.white,
                 elevation: 16.0,
-                borderRadius: new BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(40.0),
                   topLeft: Radius.circular(40.0),
                 ),
                 child: Column(
                   children: <Widget>[
-                    Container(
+                    SizedBox(
                       height: 62,
                       child: Padding(
                         padding:
@@ -178,7 +178,7 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                       CurvedAnimation(
                           parent: widget.tabIconData!.animationController!,
                           curve:
-                              Interval(0.1, 1.0, curve: Curves.fastOutSlowIn))),
+                              const Interval(0.1, 1.0, curve: Curves.fastOutSlowIn))),
                   child: Image.asset(widget.tabIconData!.isSelected
                       ? widget.tabIconData!.selectedImagePath
                       : widget.tabIconData!.imagePath),
@@ -192,12 +192,12 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                     scale: Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
                             parent: widget.tabIconData!.animationController!,
-                            curve: Interval(0.2, 1.0,
+                            curve: const Interval(0.2, 1.0,
                                 curve: Curves.fastOutSlowIn))),
                     child: Container(
                       width: 8,
                       height: 8,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: FitnessAppTheme.nearlyDarkBlue,
                         shape: BoxShape.circle,
                       ),
@@ -213,12 +213,12 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                     scale: Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
                             parent: widget.tabIconData!.animationController!,
-                            curve: Interval(0.5, 0.8,
+                            curve: const Interval(0.5, 0.8,
                                 curve: Curves.fastOutSlowIn))),
                     child: Container(
                       width: 4,
                       height: 4,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: FitnessAppTheme.nearlyDarkBlue,
                         shape: BoxShape.circle,
                       ),
@@ -234,12 +234,12 @@ class _TabIconsState extends State<TabIcons> with TickerProviderStateMixin {
                     scale: Tween<double>(begin: 0.0, end: 1.0).animate(
                         CurvedAnimation(
                             parent: widget.tabIconData!.animationController!,
-                            curve: Interval(0.5, 0.6,
+                            curve: const Interval(0.5, 0.6,
                                 curve: Curves.fastOutSlowIn))),
                     child: Container(
                       width: 6,
                       height: 6,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: FitnessAppTheme.nearlyDarkBlue,
                         shape: BoxShape.circle,
                       ),
@@ -298,7 +298,7 @@ class TabClipper extends CustomClipper<Path> {
   bool shouldReclip(TabClipper oldClipper) => true;
 
   double degreeToRadians(double degree) {
-    final double redian = (math.pi / 180) * degree;
-    return redian;
+    final double radian = (math.pi / 180) * degree;
+    return radian;
   }
 }
